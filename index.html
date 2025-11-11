@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños Mi Amor 💜</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #E8DAEF;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Floating Emojis */
+        .floating-emojis {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        .emoji {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: floatUp 8s ease-in infinite;
+            opacity: 0;
+            bottom: -10%;
+        }
+
+        .sparkle {
+            position: absolute;
+            font-size: 2rem;
+            color: #ffc700;
+            opacity: 0;
+            pointer-events: none;
+            animation: sparkle-out 0.8s ease-out;
+        }
+
+        @keyframes sparkle-out {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(0);
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10%, 90% {
+                opacity: 0.25;
+            }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .emoji:nth-child(1) { left: 5%; animation-delay: 0s; }
+        .emoji:nth-child(2) { left: 15%; animation-delay: 1.5s; }
+        .emoji:nth-child(3) { left: 25%; animation-delay: 3s; }
+        .emoji:nth-child(4) { left: 35%; animation-delay: 0.5s; }
+        .emoji:nth-child(5) { left: 45%; animation-delay: 2s; }
+        .emoji:nth-child(6) { left: 55%; animation-delay: 4s; }
+        .emoji:nth-child(7) { left: 65%; animation-delay: 1s; }
+        .emoji:nth-child(8) { left: 75%; animation-delay: 2.5s; }
+        .emoji:nth-child(9) { left: 85%; animation-delay: 3.5s; }
+        .emoji:nth-child(10) { left: 95%; animation-delay: 0.8s; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: #D2B4DE;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 182, 213, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .hologram-card {
+            background: linear-gradient(135deg, #fbd5e0 0%, #fce1e8 25%, #fdecf2 50%, #fce1e8 75%, #fbd5e0 100%);
+            border-radius: 30px;
+            padding: 4rem 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(255, 105, 180, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            animation: hologramGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes hologramGlow {
+            0%, 100% { box-shadow: 0 20px 60px rgba(255, 105, 180, 0.3); }
+            50% { box-shadow: 0 25px 80px rgba(255, 182, 213, 0.5); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ff85c1, #ff9ec9, #ffb6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textShine 3s ease-in-out infinite;
+        }
+
+        @keyframes textShine {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .number-22 {
+            font-family: 'Pacifico', cursive;
+            font-size: 8rem;
+            font-weight: 400;
+            background: linear-gradient(135deg, #ff85c1, #ff9ec9, #ffb6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 20px rgba(255, 105, 180, 0.3));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #4a2c42;
+            font-weight: 400;
+            text-shadow: 0 2px 4px rgba(255,255,255,0.5);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 6rem 2rem;
+            background: #E8DAEF;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #ffb6d9, #ff9ec9, #ffb6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title2 {
+            text-align: center;
+            font-size: 3rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 4rem;
+            background: linear-gradient(135deg, #fce1e8, #fce1e8, #ffb6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-card {
+            position: relative;
+            aspect-ratio: 4/5;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #fce1e8, #fbd5e0);
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.15);
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(255, 105, 180, 0.3);
+        }
+
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: rgba(255, 105, 180, 0.3);
+            background: linear-gradient(135deg, rgba(252, 225, 232, 0.3), rgba(251, 213, 224, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        .photo-card:hover .photo-placeholder {
+            color: rgba(255, 105, 180, 0.7);
+            transform: scale(1.1);
+        }
+
+        .photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(251, 213, 224, 0.95), rgba(252, 225, 232, 0.95));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .photo-card:hover .photo-overlay {
+            opacity: 1;
+        }
+
+        .overlay-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* Songs Section */
+        .songs-section {
+            padding: 6rem 2rem;
+            background: #D2B4DE;
+        }
+
+        .songs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .song-card {
+            background: rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 1rem;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .song-card:hover {
+            border-color: rgba(255, 105, 180, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+        }
+
+        .song-card iframe {
+            border-radius: 12px;
+        }
+
+        /* Final Section */
+        .final-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: #E8DAEF;
+        }
+
+        .bouquet-container {
+            text-align: center;
+            position: relative;
+        }
+
+        #bouquet-container::after {
+            content: 'Haz click en el ramo ✨';
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff69b4;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            animation: bounce 2s infinite;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .bouquet-emoji {
+            max-width: 50%;
+            display: block;
+            margin: 0 auto 2rem;
+            animation: rotate 4s ease-in-out infinite;
+            filter: drop-shadow(0 10px 30px rgba(255, 105, 180, 0.3));
+        }
+
+        @keyframes rotate {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+
+        .final-message {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ff85c1, #ff9ec9, #ffb6d9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .number-22 { font-size: 5rem; }
+            .hero-text { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .songs-grid {
+                grid-template-columns: 1fr;
+            }
+            .song-card {
+                min-width: auto;
+            }
+            .emoji { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Emojis -->
+    <div class="floating-emojis">
+        <div class="emoji">🎂</div>
+        <div class="emoji">🎉</div>
+        <div class="emoji">🎈</div>
+        <div class="emoji">🎁</div>
+        <div class="emoji">🕯️</div>
+        <div class="emoji">🎊</div>
+        <div class="emoji">🎂</div>
+        <div class="emoji">🎈</div>
+        <div class="emoji">🎉</div>
+        <div class="emoji">🕯️</div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1500">
+            <h1>Feliz Cumpleaños Mi Amor</h1>
+            <div class="number-22" data-aos="zoom-in" data-aos-delay="300">22</div>
+            <div class="hologram-card" data-aos="fade-up" data-aos-delay="600">
+                <p class="hero-text">
+                    Gracias por permitirme hacerlo especial para ti, son 22 añitos de luz, 22 añitos de vida, 22 añitos que agradezco a tus padres por traerte al mundo y te agradezco a ti más que a nadie el que me permitas amarte ahora y siempre, te amo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <h2 class="section-title" data-aos="fade-up">Momentos Inolvidables</h2>
+        <div class="gallery-grid">
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="fotos/f1.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Tu carita bella, ese maquillaje divino, tu cabello un poco desarreglado, tu sonrisa, amo ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="fotos/f2.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Me encantas, me muestras tal y como eres, amo tu cabello desarreglado, me fascina verlo asi ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="fotos/f3.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">En Ambato me cautivaste con esa sonrisa, tu carisma, lo roja que te ponias me hacian poner feliz ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="fotos/f4.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Tu belleza me cautiva en cada instante, tus pestañitas me encantan, amo tu forma de ser ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="fotos/f5.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Fotito de besooo, es la que mas me gusta, me encanta, es la unica foto que tengo asi de ti ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="fotos/f6.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Mi niña toda bella, te ves tan cute que te quiero agarrar a besitos :'3 ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="fotos/f7.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Fotito tirando fachaaa, me encanta que me muestres lo que te pones, como te vistes ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="fotos/f8.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Lazito blanco que hace resaltar y te hace ver como un angelito... mi angelito :'3 🥺♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="fotos/f9.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Mi amor desmaquilladoraa, tu piel es tan radiante :'3 -- me encantas totalmente ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="fotos/f10.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Carita relajada, a mi me encanta a pesar de que decías que el resto dice que se te ve seria ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="fotos/f11.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">De vestiditooo, me encantas :3 -- te quedó espectacular y brillaste, amo cada outfit tuyo ♥️</p>
+                </div>
+            </div>
+            <div class="photo-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="fotos/f12.jpg" alt="Momento especial" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="photo-overlay">
+                    <p class="overlay-text">Amorcito nocturno :3 -- tu cabello corto y toda faceta tuya me gusta ♥️✨</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Songs Section -->
+    <section class="songs-section">
+        <h2 class="section-title2" data-aos="fade-up">22 Canciones de amor</h2>
+        <div class="songs-grid">
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5863OGilEb1h8SN6BJIf2P?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2QOWWawJs7RLfttH4BXPXa?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1QSvHSBcPlSlHhsntszy85?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0tgVpDi06FyKpA1z0VMD4v?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/08K2f894fe9zB5Ohd6H1C6?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5QSYWruQQ7kBCHScI4xJ9g?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6kdCN6gTWLcLxmLXoUcwuI?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3UI9I3e1g1y5T3SMfdgfGO?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2JBs412fpVUuzIaIp3CyIs?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3H9GcHKKJyZ9TEOLKlJ1U5?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/00kIWJu9IHiQ6i0qJAU0Z9?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2318Aoqig6HS9YkHGlAm8T?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1uwPEGzopXl9KawQR1JGXq?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7DhYjNLksXZhbRQeheAums?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7e6PEtKY008duLXsAJ3TVQ?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/129lYDVKnWtlJc2PZJviuA?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/15eXfjBk8M8L0aKJXe5YnG?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5E02BgqYNN9VzafXrYP6Np?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6q4zA7hWKFF6wsJ64DWdwU?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0SRddBTphQwQcfqw4Br1uX?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="100">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/75UMtPC77vqKRwfSuYuNPO?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+            <div class="song-card" data-aos="fade-up" data-aos-delay="200">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7CX6W4Mf98wMgX0izqRpAl?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+<!-- Final Section -->
+    <section class="final-section">
+        <div class="bouquet-container" data-aos="zoom-in" data-aos-duration="1000" id="bouquet-container">
+            <a href="Te amo.pdf" download>
+                 <img src="ramo.png" alt="Ramo de Rosas" class="bouquet-emoji">
+              </a>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        const number22 = document.querySelector('.number-22');
+        const floatingEmojisContainer = document.querySelector('.floating-emojis');
+        const birthdayEmojis = ['🎂', '🎉', '🎈', '🎁', '🕯️', '🎊'];
+
+        number22.addEventListener('click', (e) => {
+            const rect = number22.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            for (let i = 0; i < 20; i++) {
+                createSparkle(x, y);
+            }
+        });
+
+        function createSparkle(x, y) {
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = '✨';
+            sparkle.classList.add('sparkle');
+
+            const randomX = (Math.random() - 0.5) * 200;
+            const randomY = (Math.random() - 0.5) * 200;
+
+            sparkle.style.setProperty('--x', `${randomX}px`);
+            sparkle.style.setProperty('--y', `${randomY}px`);
+
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+
+            number22.appendChild(sparkle);
+
+            sparkle.addEventListener('animationend', () => {
+                sparkle.remove();
+            });
+        }
+
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('emoji');
+            emoji.textContent = birthdayEmojis[Math.floor(Math.random() * birthdayEmojis.length)];
+            
+            emoji.style.left = `${Math.random() * 100}vw`;
+            emoji.style.animationDuration = `${Math.random() * 3 + 5}s`; // 5-8 seconds
+
+            floatingEmojisContainer.appendChild(emoji);
+
+            emoji.addEventListener('animationend', () => {
+                emoji.remove();
+            });
+        }
+    </script>
+</body>
+</html>
